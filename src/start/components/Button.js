@@ -1,8 +1,13 @@
+import { useState } from "react";
 const Button = () => {
-  const clickHandler = () => alert('Hello')
+  let [count, setFunc] = useState(0)
+  const plus = () => setFunc(count + 1);
+  const minus = () => setFunc(count - 1);
   return (
     <>
-      <button onClick={clickHandler}>クリック</button>
+      <button onClick={plus}>+</button>
+      <button onClick={minus}>-</button>
+      {count}
     </>
   )
 }

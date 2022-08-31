@@ -1,11 +1,10 @@
 import { useState } from "react";
 const Input = () => {
     let [val, setFunc] = useState()
+    const input = (e) => setFunc(e.target.value)
     return (
       <>
-        <input type="text" onChange={(e) => {
-            setFunc(e.target.value)
-        }} />
+        <input type="text" onChange={input} />
         {val}
       </>
     )
