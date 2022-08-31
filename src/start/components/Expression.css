@@ -1,0 +1,12 @@
+.expression-green {
+  color: green;
+  border: 5px solid green;
+}
+.expression-red {
+  color: red;
+  border: 5px solid red;
+}
+.expression-blue {
+  color: blue;
+  border: 5px solid blue;
+}
