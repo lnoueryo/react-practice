@@ -1,18 +1,31 @@
 import './Example.css'
-import Button from './components/Button'
+import List from './components/List'
+import Form from './components/Form'
+import { v4 as uuid } from 'uuid'
 import { useState } from 'react';
 const Example = () => {
-  const [toggle, setToggle] = useState(true);
-  let [countA, setFuncA] = useState(0)
-  let [countB, setFuncB] = useState(0)
-  const toggleComponent = () => {
-    setToggle(prev => !prev)
+  const todoList = [
+    {key: uuid(), value: '店予約する'},
+    {key: uuid(), value: '卵買う'},
+    {key: uuid(), value: '郵便出す'},
+  ]
+  const [todos, setTodo] = useState(todoList)
+  const deleteTodo = (e) => {
+    const newTodos = todos.filter((todo) => {
+      return todo.key != e.target.value;
+    })
+    setTodo(newTodos)
+  }
+  const createTodo = (todo) => {
+    setTodo([...todos, todo])
   }
   return (
-    <>
-      <button onClick={toggleComponent}>toggle</button>
-      {toggle ? <Button key="A" title="A" count={countA} setCount={setFuncA} /> : <Button key="B" title="B" count={countB} setCount={setFuncB} />}
-    </>
+    <div className='container'>
+      <h4>Todo.js</h4>
+      <h2 className='title'>Remainder</h2>
+      <List todos={todos} deleteTodo={deleteTodo} />
+      <Form createTodo={createTodo} />
+    </div>
   )
 }
 
