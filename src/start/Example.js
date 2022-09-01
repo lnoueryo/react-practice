@@ -1,19 +1,19 @@
 import './Example.css'
-// import List from './components/List'
-// import Profile from './components/Profile'
-// import Container from './components/Container'
 import Button from './components/Button'
-import Input from './components/Input'
-import { Fragment } from 'react'
-// const profiles = [
-//   {name: 'lnoue ryo', age: 31, country: 'Japan'},
-//   {name: 'lnoue ryl', age: 34, country: 'Philippines'},
-// ]
-const Example = () => (
-  <Fragment>
-    <Button />
-    <Input />
-  </Fragment>
-)
+import { useState } from 'react';
+const Example = () => {
+  const [toggle, setToggle] = useState(true);
+  let [countA, setFuncA] = useState(0)
+  let [countB, setFuncB] = useState(0)
+  const toggleComponent = () => {
+    setToggle(prev => !prev)
+  }
+  return (
+    <>
+      <button onClick={toggleComponent}>toggle</button>
+      {toggle ? <Button key="A" title="A" count={countA} setCount={setFuncA} /> : <Button key="B" title="B" count={countB} setCount={setFuncB} />}
+    </>
+  )
+}
 
 export default Example
