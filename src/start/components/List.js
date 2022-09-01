@@ -1,8 +1,8 @@
-import './List.css'
+import styles from './List.module.css'
 
 const List = ({todos, deleteTodo}) => {
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <h4>List.js</h4>
       {
         todos.map((todo) => {
